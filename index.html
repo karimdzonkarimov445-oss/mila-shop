@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILA — Женская одежда</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+
+    <a class="logo" href="#" onclick="scrollTo({top:0,behavior:'smooth'});return false;">
+      <span class="logo__main">MILA</span>
+      <span class="logo__sub">women's wear</span>
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="#catalog" class="nav__link" data-cat="all">Главная</a>
+      <a href="#catalog" class="nav__link" data-cat="dress">Платья</a>
+      <a href="#catalog" class="nav__link" data-cat="top">Верх</a>
+      <a href="#catalog" class="nav__link" data-cat="bottom">Низ</a>
+      <a href="#catalog" class="nav__link" data-cat="acc">Аксессуары</a>
+      <a href="#reviews" class="nav__link">Отзывы</a>
+      <a href="#contacts" class="nav__link">Контакты</a>
+    </nav>
+
+    <div class="header__icons">
+      <button class="icon-btn" id="searchBtn" title="Поиск">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" id="favBtn" title="Избранное">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="icon-btn__badge hidden" id="favBadge">0</span>
+      </button>
+      <button class="icon-btn" id="userBtn" title="Личный кабинет">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="icon-btn__badge hidden" id="userBadge">✓</span>
+      </button>
+      <button class="icon-btn" id="cartBtn" title="Корзина">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="icon-btn__badge hidden" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-bar" id="searchBar">
+    <div class="search-bar__inner">
+      <input type="text" id="searchInput" placeholder="Поиск по названию..." autocomplete="off">
+      <button class="search-bar__close" id="searchClose">×</button>
+    </div>
+    <div class="search-suggest" id="searchSuggest"></div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600')"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="hero__label">Новая коллекция · Весна–Лето '26</div>
+    <h1 class="hero__title">Мягкость в каждой<br>детали</h1>
+    <p class="hero__text">Базовый гардероб и романтичные образы для тех, кто ценит комфорт и стиль. Ткани премиум-класса, посадка по фигуре, честные цены.</p>
+    <div class="hero__actions">
+      <a href="#catalog" class="btn btn--primary">Смотреть коллекцию</a>
+      <a href="#about" class="btn btn--ghost">О бренде</a>
+    </div>
+    <div class="hero__stats">
+      <div><strong>12 000+</strong><span>довольных клиенток</span></div>
+      <div><strong>4.9</strong><span>средняя оценка</span></div>
+      <div><strong>48 ч</strong><span>доставка по РФ</span></div>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <span>Листай вниз</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="advantages">
+  <div class="container advantages__grid">
+    <div class="advantage">
+      <div class="advantage__icon">🚚</div>
+      <h3>Быстрая доставка</h3>
+      <p>По России за 2–5 дней, по Москве — уже завтра</p>
+    </div>
+    <div class="advantage">
+      <div class="advantage__icon">↩️</div>
+      <h3>Возврат 14 дней</h3>
+      <p>Не подошло — вернём деньги без вопросов</p>
+    </div>
+    <div class="advantage">
+      <div class="advantage__icon">💎</div>
+      <h3>Премиум-ткани</h3>
+      <p>Только проверенные материалы от лучших поставщиков</p>
+    </div>
+    <div class="advantage">
+      <div class="advantage__icon">💳</div>
+      <h3>Удобная оплата</h3>
+      <p>Картой, наличными, рассрочка — как удобно</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="categories-section" id="categories">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Каталог</span>
+      <h2 class="section-head__title">Выберите категорию</h2>
+    </div>
+    <div class="categories">
+      <a href="#catalog" class="category" data-cat="dress">
+        <div class="category__img" style="background-image:url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700')"></div>
+        <div class="category__overlay"></div>
+        <div class="category__content"><h3>Платья</h3><span>Смотреть →</span></div>
+      </a>
+      <a href="#catalog" class="category" data-cat="top">
+        <div class="category__img" style="background-image:url('https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=700')"></div>
+        <div class="category__overlay"></div>
+        <div class="category__content"><h3>Верх</h3><span>Смотреть →</span></div>
+      </a>
+      <a href="#catalog" class="category" data-cat="bottom">
+        <div class="category__img" style="background-image:url('https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?w=700')"></div>
+        <div class="category__overlay"></div>
+        <div class="category__content"><h3>Низ</h3><span>Смотреть →</span></div>
+      </a>
+      <a href="#catalog" class="category" data-cat="acc">
+        <div class="category__img" style="background-image:url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700')"></div>
+        <div class="category__overlay"></div>
+        <div class="category__content"><h3>Аксессуары</h3><span>Смотреть →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOG ============ -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Магазин</span>
+      <h2 class="section-head__title" id="catalogTitle">Все товары</h2>
+    </div>
+
+    <div class="catalog__toolbar">
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">Все</button>
+        <button class="filter-btn" data-cat="dress">Платья</button>
+        <button class="filter-btn" data-cat="top">Верх</button>
+        <button class="filter-btn" data-cat="bottom">Низ</button>
+        <button class="filter-btn" data-cat="acc">Аксессуары</button>
+      </div>
+      <div class="sort">
+        <label for="sortSelect">Сортировка:</label>
+        <select id="sortSelect">
+          <option value="default">По умолчанию</option>
+          <option value="price-asc">Цена ↑</option>
+          <option value="price-desc">Цена ↓</option>
+          <option value="name">По названию</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="catalog__count">Найдено: <strong id="countProducts">0</strong> товаров</div>
+
+    <div class="products" id="products"></div>
+
+    <div class="catalog__empty hidden" id="emptyState">
+      <div class="catalog__empty-emoji">🔍</div>
+      <h3>Ничего не найдено</h3>
+      <p>Попробуйте изменить фильтр или поискать другое</p>
+      <button class="btn btn--primary" onclick="resetFilters()">Сбросить фильтры</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROMO ============ -->
+<section class="promo">
+  <div class="container promo__inner">
+    <div class="promo__content">
+      <span class="promo__label">Акция до конца месяца</span>
+      <h2>−20% на вторую вещь</h2>
+      <p>Собирай образ выгодно. Скидка автоматически применится в корзине.</p>
+      <a href="#catalog" class="btn btn--light">За покупками</a>
+    </div>
+    <div class="promo__timer">
+      <div class="promo__timer-item"><strong id="days">00</strong><span>дней</span></div>
+      <div class="promo__timer-item"><strong id="hours">00</strong><span>часов</span></div>
+      <div class="promo__timer-item"><strong id="minutes">00</strong><span>минут</span></div>
+      <div class="promo__timer-item"><strong id="seconds">00</strong><span>секунд</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about__grid">
+    <div class="about__image" style="background-image:url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=900')"></div>
+    <div class="about__content">
+      <span class="section-head__label">О бренде</span>
+      <h2>Создаём одежду, в которой хочется жить</h2>
+      <p>MILA — это российский бренд женской одежды, основанный в 2018 году. Мы делаем ставку на натуральные ткани, актуальные силуэты и честные цены. Каждая коллекция создаётся небольшой командой дизайнеров, которые сами носят то, что создают.</p>
+      <ul class="about__list">
+        <li>✓ Собственное производство в России</li>
+        <li>✓ Ткани из Италии и Турции</li>
+        <li>✓ Отшиваем размеры XS–XXL</li>
+        <li>✓ Работаем с 2018 года</li>
+      </ul>
+      <a href="#catalog" class="btn btn--primary">Смотреть новинки</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Отзывы</span>
+      <h2 class="section-head__title">Что говорят клиентки</h2>
+    </div>
+    <div class="reviews__grid">
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">«Платье V-146 — просто мечта! Село идеально, ткань мягкая. Заказала ещё одно.»</p>
+        <div class="review__author">
+          <div class="review__avatar">А</div>
+          <div><strong>Анна К.</strong><span>Москва · 27 лет</span></div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">«Качество на высоте, доставка быстрая, упаковка красивая. Буду заказывать ещё!»</p>
+        <div class="review__author">
+          <div class="review__avatar">М</div>
+          <div><strong>Мария С.</strong><span>Санкт-Петербург · 24 года</span></div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">«Уже третий заказ подряд, и снова всё нравится. Юбки сидят потрясающе.»</p>
+        <div class="review__author">
+          <div class="review__avatar">К</div>
+          <div><strong>Ксения В.</strong><span>Казань · 31 год</span></div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">«Впервые заказала онлайн — и не пожалела. Всё как на фото, размер подошёл.»</p>
+        <div class="review__author">
+          <div class="review__avatar">Е</div>
+          <div><strong>Елена П.</strong><span>Екатеринбург · 29 лет</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBSCRIBE ============ -->
+<section class="subscribe">
+  <div class="container subscribe__inner">
+    <div class="subscribe__content">
+      <h2>Скидка 10% на первый заказ</h2>
+      <p>Подпишитесь на рассылку — пришлём промокод и будем сообщать о новинках первыми.</p>
+    </div>
+    <form class="subscribe__form" id="subscribeForm">
+      <input type="email" placeholder="Ваш email" required>
+      <button type="submit" class="btn btn--primary">Подписаться</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contacts">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <div class="logo logo--footer">
+        <span class="logo__main">MILA</span>
+        <span class="logo__sub">women's wear</span>
+      </div>
+      <p>Мягкость в каждой детали. Одежда для тех, кто ценит комфорт и стиль.</p>
+      <div class="footer__socials">
+        <a href="#">IG</a><a href="#">TT</a><a href="#">TG</a><a href="#">VK</a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h4>Магазин</h4>
+      <ul>
+        <li><a href="#catalog" data-cat="dress">Платья</a></li>
+        <li><a href="#catalog" data-cat="top">Верх</a></li>
+        <li><a href="#catalog" data-cat="bottom">Низ</a></li>
+        <li><a href="#catalog" data-cat="acc">Аксессуары</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Помощь</h4>
+      <ul>
+        <li><a href="#">Доставка и оплата</a></li>
+        <li><a href="#">Возврат</a></li>
+        <li><a href="#">Таблица размеров</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Контакты</h4>
+      <ul>
+        <li>hello@mila.ru</li>
+        <li>+7 (999) 123-45-67</li>
+        <li>Душанбе, Торговый центр  City Mall</li>
+        <li>Пн–Вс · 10:00–21:00</li>
+        <li style="margin-top:14px;"><a href="admin.html" style="color:var(--powder);">→ Админ-панель</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span>© 2026 MILA. Все права защищены.</span>
+      <span>Политика конфиденциальности · Публичная оферта</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ OVERLAY ============ -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ============ CART PANEL ============ -->
+<aside class="cart-panel" id="cartPanel">
+  <div class="cart-panel__head">
+    <h3>Корзина</h3>
+    <button class="close-btn" id="closeCart">×</button>
+  </div>
+  <div class="cart-panel__body" id="cartBody"></div>
+  <div class="cart-panel__footer" id="cartFooter" style="display:none">
+    <div class="cart-panel__row"><span>Товаров:</span><strong id="cartQty">0</strong></div>
+    <div class="cart-panel__row"><span>Скидка:</span><strong id="cartDiscount">0 ₽</strong></div>
+    <div class="cart-panel__row cart-panel__row--total"><span>Итого:</span><strong id="cartTotal">0 ₽</strong></div>
+    <button class="btn btn--primary btn--full" id="checkoutBtn">Оформить заказ</button>
+  </div>
+</aside>
+
+<!-- ============ AUTH MODAL (Вход) ============ -->
+<div class="modal" id="authModal">
+  <div class="modal__box modal__box--center">
+    <button class="modal__close" id="closeAuth">×</button>
+    <h3>Добро пожаловать</h3>
+    <p class="modal__sub">Войдите, чтобы сохранять корзину и заказы</p>
+
+    <button class="btn-google" id="googleLogin">
+      <svg width="20" height="20" viewBox="0 0 48 48">
+        <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.4-.4-3.5z"/>
+        <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+        <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+        <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.2 5.2C39.9 36.3 44 30.7 44 24c0-1.2-.1-2.4-.4-3.5z"/>
+      </svg>
+      Войти через Google
+    </button>
+
+    <div class="auth-divider"><span>или</span></div>
+
+    <form class="auth-form" id="loginForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required placeholder="you@mail.ru">
+      </div>
+      <div class="form-group">
+        <label>Пароль</label>
+        <input type="password" id="loginPassword" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">Войти</button>
+    </form>
+
+    <p class="auth-hint">Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a></p>
+
+    <div class="auth-admin-hint">
+      <span>🔐 Админ?</span> <a href="admin.html">Войти в панель управления</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal" id="checkoutModal">
+  <div class="modal__box">
+    <button class="modal__close" id="closeCheckout">×</button>
+    <h3>Оформление заказа</h3>
+    <p class="modal__sub">Заполните данные — мы свяжемся для подтверждения</p>
+    <form class="checkout-form" id="checkoutForm">
+      <div class="form-group"><label>Имя и фамилия *</label><input type="text" name="name" required placeholder="Анна Иванова"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Телефон *</label><input type="tel" name="phone" required placeholder="+7 900 000-00-00"></div>
+        <div class="form-group"><label>Email *</label><input type="email" name="email" required placeholder="you@mail.ru"></div>
+      </div>
+      <div class="form-group"><label>Адрес доставки *</label><input type="text" name="address" required placeholder="Город, улица, дом, квартира"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Доставка</label>
+          <select name="delivery">
+            <option>Курьером по Москве — 350 ₽</option>
+            <option>СДЭК — 250 ₽</option>
+            <option>Почта России — 200 ₽</option>
+            <option>Самовывоз (бесплатно)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Оплата</label>
+          <select name="payment">
+            <option>Картой онлайн</option>
+            <option>Картой при получении</option>
+            <option>Наличными курьеру</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Комментарий</label><textarea name="comment" rows="2" placeholder="Пожелания к заказу"></textarea></div>
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" id="cancelCheckout">Отмена</button>
+        <button type="submit" class="btn btn--primary">Подтвердить</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ SUCCESS MODAL ============ -->
+<div class="modal" id="successModal">
+  <div class="modal__box modal__box--center">
+    <div class="success-icon">✓</div>
+    <h3>Заказ оформлен!</h3>
+    <p id="successText">Спасибо! Мы свяжемся с вами в течение 15 минут.</p>
+    <div class="success-info">
+      <div><span>Номер заказа:</span><strong id="orderNumber">—</strong></div>
+      <div><span>Сумма:</span><strong id="orderTotal">—</strong></div>
+    </div>
+    <button class="btn btn--primary btn--full" id="successClose">Отлично</button>
+  </div>
+</div>
+
+<!-- ============ PRODUCT QUICK VIEW ============ -->
+<div class="modal" id="productModal">
+  <div class="modal__box modal__box--product">
+    <button class="modal__close" id="closeProduct">×</button>
+    <div class="product-view" id="productView"></div>
+  </div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast">
+  <span class="toast__icon">✓</span>
+  <span class="toast__text"></span>
+</div>
+
+<!-- ============ BACK TO TOP ============ -->
+<button class="back-top" id="backTop">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
